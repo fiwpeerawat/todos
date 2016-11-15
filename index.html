@@ -19,18 +19,54 @@
   </style>
 
 
-                                <form>
+                <div ng-controller ="Addtodocontroller" >
 
-                                          <input type="text"   >
-                                                                  
-                                       <button type="button" >ADD TODO</button>
-     
-                                   
+
+                                <form name = "todoform" >
+
+                                             <div class="form-group" for= "fullname">
+
+
+                                                      <div >
+                                                        <input type="text" name="inputtitle"   class = "form-control" ng-model="inputtitle" ng-enter= "save()" placeholder= " What needs to be done? " autofocus >
+                                                      </div>
+
+
+                                                       <div >
+                                                            <center><button type="button" class="btn btn-primary" ng-click="save()">ADD TODO</button></center>
+                                                       </div>
+
+                                          </div>
                                  </form>
 
 
+                </div>
 
 
+
+			<div ng-controller="ListtodoController">
+          		  <table class="table table-striped">
+
+          					 <tbody>
+          					        <tr ng-repeat="contact in todolist"  >
+
+                                     <td class="col-md-4 col-xs-4 " >
+                                          <input  type="checkbox"  ng-model = "checkstate" ng-click = "setDone(contact)" ng-init="checkstate = false" ></td>
+          					                 <td class="col-md-4 col-xs-4">
+												{{ contact.title }} </td>
+                                     <td class="col-md-4 col-xs-4">
+                                          
+                					             {{contact.done}}
+                                         
+										  
+             
+                                    </td>
+
+          					        </tr>
+          					 </tbody>
+
+          			</table>
+          		</div>
 
 
 
